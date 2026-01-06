@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de donaciones para apoyar iniciativas benéficas de la comunidad judía">
+    <title>Donaciones | Apoyo Comunitario</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+</head>
+<body>
+    <!-- Modal de Feliz Hanukkah -->
+    <div class="hanukkah-modal" id="hanukkah-modal">
+        <canvas id="hanukkah-lights" aria-hidden="true"></canvas>
+        <div class="hanukkah-modal-content">
+            <div class="chatgpt-image-container">
+                <img src="images/ChatGPT Image 27 dic 2025, 16_07_18 (1).png" alt="Mensaje de Hanukkah" class="chatgpt-image">
+            </div>
+            <button class="hanukkah-close-btn" id="hanukkah-close">Continuar</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <iconify-icon icon="mdi:star-of-david" style="color:#4aa3ff;"></iconify-icon>
+                    </div>
+                    <h1>Comunidad Judía</h1>
+                </div>
+                <nav class="nav">
+                    <a href="mision.html" class="nav-link">Misión</a>
+                    <a href="#transparencia" class="nav-link">Transparencia</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="testimonios.html" class="nav-link">Testimonios</a>
+                    <a href="articulos.html" class="nav-link">Artículos</a>
+                </nav>
+                <div class="header-actions">
+                    <label class="theme-switch" for="theme-toggle">
+                        <input type="checkbox" id="theme-toggle" aria-label="Cambiar modo oscuro">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-image-container">
+                    <img src="images/bomi.jpg" alt="Comunidad estudiando juntos" class="hero-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="image-placeholder" style="display: none;">
+                        <span>📷</span>
+                        <p>Coloca aquí una imagen de la comunidad (ej: personas estudiando, celebraciones, etc.)</p>
+                        
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <h2 class="hero-title">Apoya a nuestra comunidad. Haz tu donación hoy.</h2>
+                    <p class="hero-subtitle">Con tu ayuda financiamos becas, asistencia a familias, actividades educativas y proyectos culturales.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="document.getElementById('donacion').scrollIntoView({behavior:'smooth'})">Donar ahora</button>
+                        <button class="btn-secondary" onclick="document.getElementById('transparencia').scrollIntoView({behavior:'smooth'})">Ver en qué se usa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <iconify-icon icon="mdi:heart" style="color:#ff4d6d;"></iconify-icon>
+                    </div>
+                    <h3 class="impact-title">Ayuda Social</h3>
+                    <p class="impact-stats">+ 120 familias apoyadas al mes</p>
+                    <div class="impact-image-wrapper">
+                        <img src="images/ayuda-social.jpg" alt="Ayuda social a familias" class="impact-image" onerror="this.style.display='none';">
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <iconify-icon icon="mdi:school" style="color:#22c55e;"></iconify-icon>
+                    </div>
+                    <h3 class="impact-title">Educación</h3>
+                    <p class="impact-stats">50 becas otorgadas</p>
+                    <div class="impact-image-wrapper">
+                        <img src="images/educacion.jpg" alt="Programas educativos" class="impact-image" onerror="this.style.display='none';">
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <iconify-icon icon="mdi:account-group" style="color:#f59e0b;"></iconify-icon>
+                    </div>
+                    <h3 class="impact-title">Cultura y Comunidad</h3>
+                    <p class="impact-stats">Eventos y tradiciones</p>
+                    <div class="impact-image-wrapper">
+                        <img src="images/cultura.jpg" alt="Eventos culturales" class="impact-image" onerror="this.style.display='none';">
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <iconify-icon icon="mdi:alarm-light" style="color:#ef4444;"></iconify-icon>
+                    </div>
+                    <h3 class="impact-title">Emergencias</h3>
+                    <p class="impact-stats">Respuesta inmediata</p>
+                    <div class="impact-image-wrapper">
+                        <img src="images/emergencias.jpg" alt="Ayuda de emergencia" class="impact-image" onerror="this.style.display='none';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="donation-section" id="donacion">
+        <div class="container">
+            <div class="donation-card">
+                <h3 class="donation-title">Haz tu donación</h3>
+                <p class="donation-description">Selecciona el monto que deseas donar o ingresa un monto personalizado</p>
+                
+                <div class="donation-amounts">
+                    <button class="amount-btn" data-amount="10">$10</button>
+                    <button class="amount-btn" data-amount="25">$25</button>
+                    <button class="amount-btn" data-amount="50">$50</button>
+                    <button class="amount-btn" data-amount="100">$100</button>
+                    <button class="amount-btn custom-btn" id="other-amount-btn">Otro</button>
+                </div>
+
+                <div class="custom-amount-section">
+                    <label for="custom-amount" class="custom-amount-label">Otro monto</label>
+                    <div class="custom-amount-input-wrapper">
+                        <span class="currency-symbol">$</span>
+                        <input 
+                            type="text" 
+                            id="custom-amount" 
+                            class="custom-amount-input" 
+                            placeholder="0.00"
+                            inputmode="decimal"
+                            aria-label="Ingresa un monto personalizado"
+                        >
+                    </div>
+                    <div class="error-message" id="amount-error" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="donation-summary" id="donation-summary" style="display: none;">
+                    <p class="summary-text" id="summary-text">Vas a donar: $<span id="selected-amount">0</span></p>
+                    <button class="continue-btn" id="continue-btn">Continuar al pago</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="transparency-section" id="transparencia">
+        <div class="container">
+            <div class="section-content">
+                <h2 class="section-title">Transparencia</h2>
+                <p class="section-intro">
+                    Creemos en la transparencia total sobre cómo utilizamos cada donación que recibimos. 
+                    Tu confianza es fundamental para nosotros.
+                </p>
+                
+                <div class="transparency-grid">
+                    <div class="transparency-item">
+                        <div class="transparency-icon">
+                            <iconify-icon icon="mdi:book-education" style="color:#22c55e;"></iconify-icon>
+                        </div>
+                        <h3 class="transparency-category">Educación</h3>
+                        <p class="transparency-percentage">35%</p>
+                        <p class="transparency-description">
+                            Becas estudiantiles, programas educativos, materiales didácticos y apoyo académico 
+                            para niños y jóvenes de la comunidad.
+                        </p>
+                    </div>
+                    
+                    <div class="transparency-item">
+                        <div class="transparency-icon">
+                            <iconify-icon icon="mdi:handshake" style="color:#60a5fa;"></iconify-icon>
+                        </div>
+                        <h3 class="transparency-category">Ayuda Social</h3>
+                        <p class="transparency-percentage">40%</p>
+                        <p class="transparency-description">
+                            Asistencia alimentaria, apoyo médico, ayuda a familias en situación de vulnerabilidad 
+                            y programas de bienestar social.
+                        </p>
+                    </div>
+                    
+                    <div class="transparency-item">
+                        <div class="transparency-icon">
+                            <iconify-icon icon="mdi:menorah" style="color:#fbbf24;"></iconify-icon>
+                        </div>
+                        <h3 class="transparency-category">Cultura y Comunidad</h3>
+                        <p class="transparency-percentage">15%</p>
+                        <p class="transparency-description">
+                            Eventos culturales, actividades comunitarias, preservación de tradiciones y espacios 
+                            de encuentro para la comunidad.
+                        </p>
+                    </div>
+                    
+                    <div class="transparency-item">
+                        <div class="transparency-icon">
+                            <iconify-icon icon="mdi:cog" style="color:#a78bfa;"></iconify-icon>
+                        </div>
+                        <h3 class="transparency-category">Operación</h3>
+                        <p class="transparency-percentage">10%</p>
+                        <p class="transparency-description">
+                            Gastos administrativos, infraestructura y recursos necesarios para mantener nuestros 
+                            programas funcionando eficientemente.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="transparency-note">
+                    <p>
+                        Publicamos informes financieros trimestrales detallados que están disponibles para todos 
+                        los donantes. Puedes solicitar un informe completo en cualquier momento contactándonos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-content">
+                <h2 class="section-title">Testimonios</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-image-wrapper">
+                            <img src="images/testimonial-1.jpg" alt="Testimonio de David" class="testimonial-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="image-placeholder-small" style="display: none;">
+                                <span>🙋</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Gracias a este programa pude continuar mis estudios."</p>
+                            <p class="testimonial-author">— David R.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-image-wrapper">
+                            <img src="images/testimonial-2.jpg" alt="Testimonio de Sara" class="testimonial-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="image-placeholder-small" style="display: none;">
+                                <span>🙋</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"La ayuda llegó justo cuando más la necesitábamos."</p>
+                            <p class="testimonial-author">— Sara L.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: var(--spacing-xl);">
+                    <a href="testimonios.html" class="btn-primary" style="text-decoration: none; display: inline-block;">Ver más testimonios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artículos Section -->
+    <section class="articles-section" id="articulos">
+        <div class="container">
+            <div class="section-content">
+                <h2 class="section-title">Artículos</h2>
+                <p class="section-intro">Historias, actividades y novedades de la comunidad.</p>
+
+                <div class="swiper" id="articlesSwiper">
+                    <div class="swiper-wrapper">
+
+                        <article class="swiper-slide article-card">
+                            <img class="article-img" src="images/bomi.jpg" alt="Artículo 1" onerror="this.src='images/bandera.jpg';">
+                            <div class="article-body">
+                                <p class="article-meta">Dic 2025 · Comunidad</p>
+                                <h3 class="article-title">Encendido de la Janukiá</h3>
+                                <p class="article-excerpt">Un encuentro para compartir tradiciones y unión familiar.</p>
+                                <a class="article-cta" href="producto.html?id=1">Leer más →</a>
+                            </div>
+                        </article>
+
+                        <article class="swiper-slide article-card">
+                            <img class="article-img" src="images/bandera.jpg" alt="Artículo 2" onerror="this.src='images/bomi.jpg';">
+                            <div class="article-body">
+                                <p class="article-meta">Nov 2025 · Educación</p>
+                                <h3 class="article-title">Becas para jóvenes</h3>
+                                <p class="article-excerpt">Apoyo académico, tutorías y acompañamiento continuo.</p>
+                                <a class="article-cta" href="producto.html?id=2">Leer más →</a>
+                            </div>
+                        </article>
+
+                        <article class="swiper-slide article-card">
+                            <img class="article-img" src="images/ban.jpg" alt="Artículo 3" onerror="this.src='images/bomi.jpg';">
+                            <div class="article-body">
+                                <p class="article-meta">Oct 2025 · Ayuda Social</p>
+                                <h3 class="article-title">Asistencia a familias</h3>
+                                <p class="article-excerpt">Tu donación llega a quienes más lo necesitan.</p>
+                                <a class="article-cta" href="producto.html?id=3">Leer más →</a>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev" aria-label="Anterior"></div>
+                    <div class="swiper-button-next" aria-label="Siguiente"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-content">
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Cómo puedo estar seguro de que mi donación se utiliza correctamente?</span>
+                            <span class="faq-icon">
+                                <iconify-icon icon="mdi:plus" class="faq-icon-svg"></iconify-icon>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Publicamos informes financieros trimestrales detallados que muestran exactamente 
+                                cómo se utilizan los fondos. Además, todos nuestros estados financieros son auditados 
+                                anualmente por una firma externa independiente. Puedes solicitar estos informes 
+                                en cualquier momento.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Recibiré un comprobante de mi donación?</span>
+                            <span class="faq-icon">
+                                <iconify-icon icon="mdi:plus" class="faq-icon-svg"></iconify-icon>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Sí, inmediatamente después de completar tu donación recibirás un comprobante por 
+                                correo electrónico. Este comprobante es válido para efectos fiscales y puede ser 
+                                utilizado para deducciones de impuestos según corresponda en tu jurisdicción.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Qué métodos de pago aceptan?</span>
+                            <span class="faq-icon">
+                                <iconify-icon icon="mdi:plus" class="faq-icon-svg"></iconify-icon>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Aceptamos tarjetas de crédito y débito (Visa, Mastercard, American Express), 
+                                transferencias bancarias y pagos a través de plataformas seguras. Todos los 
+                                pagos se procesan de forma segura con encriptación SSL.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Puedo hacer una donación recurrente mensual?</span>
+                            <span class="faq-icon">
+                                <iconify-icon icon="mdi:plus" class="faq-icon-svg"></iconify-icon>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Sí, ofrecemos la opción de donaciones recurrentes mensuales. Esto nos ayuda a 
+                                planificar mejor nuestros programas y garantizar un apoyo continuo. Puedes cancelar 
+                                o modificar tu donación recurrente en cualquier momento desde tu cuenta o 
+                                contactándonos directamente.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Mi información personal está segura?</span>
+                            <span class="faq-icon">
+                                <iconify-icon icon="mdi:plus" class="faq-icon-svg"></iconify-icon>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Absolutamente. Protegemos tu información personal con los más altos estándares de 
+                                seguridad. Utilizamos encriptación SSL para todas las transacciones y nunca 
+                                compartimos tu información con terceros sin tu consentimiento explícito. Puedes 
+                                revisar nuestra política de privacidad completa para más detalles.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Puedo especificar a qué programa quiero que vaya mi donación?</span>
+                            <span class="faq-icon">
+                                <iconify-icon icon="mdi:plus" class="faq-icon-svg"></iconify-icon>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Sí, durante el proceso de donación podrás seleccionar si deseas que tu contribución 
+                                vaya a un programa específico (educación, ayuda social, cultura, etc.) o si prefieres 
+                                que sea una donación general que se distribuirá según las necesidades más urgentes 
+                                de la comunidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                        <iconify-icon icon="mdi:star-of-david" style="color:#4aa3ff;"></iconify-icon>
+                    </div>
+                        <h3 class="footer-title">Comunidad Judía</h3>
+                    </div>
+                    <p class="footer-text">
+                        Trabajando juntos para fortalecer nuestra comunidad y apoyar a quienes más lo necesitan.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <a href="mision.html" class="footer-link">Misión</a>
+                    <a href="#transparencia" class="footer-link">Transparencia</a>
+                    <a href="#faq" class="footer-link">FAQ</a>
+                    <a href="testimonios.html" class="footer-link">Testimonios</a>
+                    <a href="articulos.html" class="footer-link">Artículos</a>
+                    <a href="#donacion" class="footer-link">Donar</a>
+                </div>
+                <div class="footer-contact">
+                    <p class="footer-text"><strong>Contacto</strong></p>
+                    <p class="footer-text">Email: contacto@apoyocomunitario.org</p>
+                    <p class="footer-text">Teléfono: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Apoyo Comunitario. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#" class="footer-link-small">Política de Privacidad</a>
+                    <span>|</span>
+                    <a href="#" class="footer-link-small">Términos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Inicializar Twemoji para renderizar emojis más bonitos
+        if (typeof twemoji !== 'undefined') {
+            twemoji.parse(document.body, {
+                folder: 'svg',
+                ext: '.svg'
+            });
+        }
+    </script>
+</body>
+</html>

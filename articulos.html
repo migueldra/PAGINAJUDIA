@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artículos y productos especiales para la comunidad judía">
+    <title>Artículos | Comunidad Judía</title>
+    <link rel="stylesheet" href="css/marketplace.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="marketplace-header">
+        <div class="marketplace-header-container">
+            <div class="marketplace-logo">
+                <iconify-icon icon="mdi:star-of-david" style="color:#2563eb; font-size: 32px;"></iconify-icon>
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Artículos Comunidad</a></h1>
+            </div>
+            <div class="marketplace-search">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Buscar artículos..."
+                    aria-label="Buscar productos"
+                >
+                <button class="search-btn" aria-label="Buscar">
+                    <iconify-icon icon="mdi:magnify"></iconify-icon>
+                </button>
+            </div>
+            <nav class="marketplace-nav">
+                <a href="index.html" class="nav-link-marketplace">Inicio</a>
+                <a href="mision.html" class="nav-link-marketplace">Misión</a>
+                <a href="testimonios.html" class="nav-link-marketplace">Testimonios</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="marketplace-main">
+        <!-- Sidebar Filtros -->
+        <aside class="marketplace-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Filtros</h2>
+                <button class="sidebar-close" id="closeSidebar" aria-label="Cerrar filtros">
+                    <iconify-icon icon="mdi:close"></iconify-icon>
+                </button>
+            </div>
+
+            <div class="filter-section">
+                <h3 class="filter-title">Categoría</h3>
+                <div class="filter-options">
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="todos" class="category-filter" checked>
+                        <span>Todos</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="libros" class="category-filter">
+                        <span>Libros</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="artesanias" class="category-filter">
+                        <span>Artesanías</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="textiles" class="category-filter">
+                        <span>Textiles</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="musica" class="category-filter">
+                        <span>Música</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="cocina" class="category-filter">
+                        <span>Cocina</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3 class="filter-title">Estado</h3>
+                <div class="filter-options">
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="todos" class="status-filter" checked>
+                        <span>Todos</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="nuevo" class="status-filter">
+                        <span>Nuevo</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="usado" class="status-filter">
+                        <span>Usado</span>
+                    </label>
+                </div>
+            </div>
+
+            <button class="filter-clear" id="clearFilters">Limpiar filtros</button>
+        </aside>
+
+        <!-- Products Section -->
+        <section class="marketplace-content">
+            <div class="marketplace-toolbar">
+                <div class="results-count">
+                    <span id="resultsCount">0</span> productos encontrados
+                </div>
+                <div class="sort-container">
+                    <label for="sortSelect" class="sort-label">Ordenar por:</label>
+                    <select id="sortSelect" class="sort-select" aria-label="Ordenar productos">
+                        <option value="relevante">Más relevante</option>
+                        <option value="precio-asc">Menor precio</option>
+                        <option value="precio-desc">Mayor precio</option>
+                    </select>
+                </div>
+                <button class="sidebar-toggle" id="toggleSidebar" aria-label="Mostrar filtros">
+                    <iconify-icon icon="mdi:filter"></iconify-icon>
+                    Filtros
+                </button>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Los productos se renderizarán aquí dinámicamente -->
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <iconify-icon icon="mdi:package-variant" style="font-size: 64px; color: var(--color-text-light);"></iconify-icon>
+                <p>No se encontraron productos</p>
+                <button class="btn-clear-filters" onclick="clearAllFilters()">Limpiar filtros</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <iconify-icon icon="mdi:star-of-david" style="color:#4aa3ff;"></iconify-icon>
+                        </div>
+                        <h3 class="footer-title">Comunidad Judía</h3>
+                    </div>
+                    <p class="footer-text">
+                        Trabajando juntos para fortalecer nuestra comunidad y apoyar a quienes más lo necesitan.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <a href="mision.html" class="footer-link">Misión</a>
+                    <a href="index.html#transparencia" class="footer-link">Transparencia</a>
+                    <a href="index.html#faq" class="footer-link">FAQ</a>
+                    <a href="testimonios.html" class="footer-link">Testimonios</a>
+                    <a href="articulos.html" class="footer-link">Artículos</a>
+                    <a href="index.html#donacion" class="footer-link">Donar</a>
+                </div>
+                <div class="footer-contact">
+                    <p class="footer-text"><strong>Contacto</strong></p>
+                    <p class="footer-text">Email: contacto@apoyocomunitario.org</p>
+                    <p class="footer-text">Teléfono: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Apoyo Comunitario. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#" class="footer-link-small">Política de Privacidad</a>
+                    <span>|</span>
+                    <a href="#" class="footer-link-small">Términos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/marketplace.js"></script>
+</body>
+</html>
